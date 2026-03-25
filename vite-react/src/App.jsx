@@ -1,121 +1,111 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
 
+function WelcomeMessage(name) {
+  return <h2>Hello, {name}!</h2>;
+}
+function Greeting(isMorning) {
+  if (isMorning) {
+    return <h2>Good Morning!</h2>;  
+  }
+  return <h2>Good Evening!</h2>;
+}
 function App() {
-  const [count, setCount] = useState(0)
+
+  const buttonLabel = "Click Me";
+  const unreadMessages = 5;
+  const appStyle = { padding: '20px', backgroundColor: '#f0f0f0' };
+  const messageStyle = { color: '#333' };
+  const now = new Date();
+  const isMorning = now.getHours() < 12;
+   
+   const name = "Mohamed Almazrouei";
+    const profession = "full Stack Developer";
+const projects = [
+    {
+      
+      title: "Project One",
+      description: "  👆A web application built using React and Node.js", // أضفنا فاصلة هنا
+      link: "#"
+    },
+    {
+      title: "Project Two",
+      description: "  👆An eCommerce platform built using Django", // أضفنا فاصلة هنا
+      link: "#"
+    }
+  ];
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div>
+      <h1 className='greeting'>Hello, {name}</h1>
+      <button style={{ backgroundColor: 'green', color: 'white' }}>
+        {buttonLabel}
+      </button>
+     
+      <button onClick={() => alert('Button Clicked!')}> Alert Me!</button>
+  <img src="https://placehold.co/100x100" />
+      <div style={appStyle}>
+        <h1>Welcome back!</h1>
+        <p style={messageStyle}>
+          You have {unreadMessages} unread {unreadMessages === 1 ? "message" : "messages"}.
+        </p>
+      </div>
 
-      <div className="ticks"></div>
+    <div >
+      {WelcomeMessage("Alice" )}
+      {WelcomeMessage("Bob")}
+      {WelcomeMessage("Charlie")}
+      {Greeting({ isMorning })}
+    </div>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      
+      <div className='APP'>
+        <header className='header'>
+          <h1>{name}</h1>
+          <p>{profession}</p>
+<nav>
+  <a href="#about">About</a >
+  {"\u00A0\u00A0"}
+  <a href="#projects">Projects</a>
+  {"\u00A0\u00A0"}
+  <a href="#contact">Contact</a>
+</nav>
+</header>
+      </div>
+   <section id="about" style={{ padding: '40px 20px', backgroundColor: '#e0e0e0' }}>
+      <p>
+        Hello! I am mohamed almazrouei , a passionate Full Stack Developer. I love building web 
+        application that solves real world user problems.
+      </p>
+</section>
+    <section id="projects" style={{ padding: '400px 20px', backgroundColor: '#e0e0e0' }}>
+      
+      <h2 style={{ fontSize: '42px', marginBottom: '40px' }}>
+        Projects
+      </h2>
+      <div className='project-list'>
+        {projects.map((project, index) => (
+          <div key={index} className='project-item' style={{ marginBottom: '30px' }}>
+            <h3>
+              {project.title}
+            </h3>
+            <p style={{ fontSize: '20px', margin: '0' }}>
+              {project.description}
+            </p>
+          </div>
+        ))}
+      </div>
+</section>
+   <section id="contact" style={{ padding: '40px 20px', backgroundColor: '#e0e0e0' }}>
+      <h2 style={{ fontSize: '42px', marginBottom: '40px' }}>
+     contact me
+      </h2>
+      <p style={{ fontSize: '20px', margin: '0' }}>
+        You can reach me at <a href="mailto:mohamed@example.com">mohamed@example.com</a>
+      </p>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+</section>
+      </div>
+  );
 }
 
-export default App
+export default App;
