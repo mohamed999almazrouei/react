@@ -24,12 +24,12 @@ const projects = [
     {
       
       title: "Project One",
-      description: "  👆A web application built using React and Node.js", // أضفنا فاصلة هنا
+      description: "  👆A web application built using React and Node.js",
       link: "#"
     },
     {
       title: "Project Two",
-      description: "  👆An eCommerce platform built using Django", // أضفنا فاصلة هنا
+      description: "  👆An eCommerce platform built using Django",
       link: "#"
     }
   ];
@@ -103,6 +103,11 @@ const projects = [
         You can reach me at <a href="mailto:mohamed@example.com">mohamed@example.com</a>
       </p>
 
+</section>
+<section id="footer" style={{ padding: '20px', backgroundColor: '#333', color: '#fff', textAlign: 'center' }}>
+      <p style={{ margin: '0' }}>
+        &copy; 2026 Mohamed Almazrouei. All rights reserved.
+      </p>
 </section>
       </div>
   );
