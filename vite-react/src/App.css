@@ -54,6 +54,25 @@ input[type="text"], select {
   cursor: pointer;
   border: 2px solid #fff;
 }
+.clock-container {
+  display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+  background-color: #282c34;
+}
+* {
+margin:0px ;
+}
+.clock{ 
+  font-size: 4rem;
+  color: #61dafb;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #20232a;
+  padding: 20px 40px ;
+  border-radius: 10px;
+
+}
 .app{
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   text-align: center;

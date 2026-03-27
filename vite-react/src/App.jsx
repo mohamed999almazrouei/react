@@ -19,6 +19,16 @@ function Greeting(isMorning) {
   return <h2>Good Evening!</h2>;
 }
 function App() {
+  const[time, setTime] = useState(new Date());
+  useEffect(() => {
+  const timerId = setInterval(() => {setTime(new Date());}, 1000);
+   return () => clearInterval(timerId);
+  }, []);
+  const formattedTime = time.toLocaleTimeString('en-US',
+     { hour: '2-digit',
+       minute: '2-digit', 
+       second: '2-digit' });  
+
 const [backgroundColor, setBackgroundColor] = useState('white');
   const colors =['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'  ];
   const handleColorChange = (color) => {
@@ -93,6 +103,11 @@ const incrementcountt = () => {
         <ParentComponent />
       </div> 
       <hr/>
+         <div>
+      <h1>useEffect time </h1>
+      <p>Current Time: {formattedTime}</p>
+      </div>
+      <hr />
        <div>
       <h1>useEffect Hook </h1>
       <button onClick={() => setCount(count+1)}>Increment</button>
