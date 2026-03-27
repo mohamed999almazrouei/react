@@ -6,7 +6,8 @@ import Header from './components/Header';
 import ProjectList from './components/ProjectList';
 import MyButton from './MyButton';
 import ProfileCard from './ProfileCard';
-import { useState } from 'react';
+import ParentComponent from './ParentComponent';
+import React, { useEffect, useState } from 'react';
 function WelcomeMessage(name) {
   return <h2>Hello, {name}!</h2>;
 }
@@ -49,6 +50,14 @@ const incrementCounter = (id) => {
   const incrementCount = () => {
     setCount(count + step);
   };
+  const[anotherValue, setAnotherValue] = useState(10);
+  useEffect(() => {
+ document.title=`Count: ${count+1}`;
+ console.log('useEffect Triggered:', count);
+}, [count]);
+const incrementcountt = () => {
+  setCount(count + 1);
+} 
   const incrementTwice = () => {
     setCount(prevCount => prevCount + 1 );
      setCount(prevCount => prevCount + 1 );
@@ -80,7 +89,17 @@ const incrementCounter = (id) => {
         <MyButton />  {"\u00A0\u00A0"} <MyButton />  {"\u00A0\u00A0"}<MyButton />
       </div>
       <hr />
-     
+           <div>
+        <ParentComponent />
+      </div> 
+      <hr/>
+       <div>
+      <h1>useEffect Hook </h1>
+      <button onClick={() => setCount(count+1)}>Increment</button>
+      {"\u00A0\u00A0"}
+       <button onClick={() => setAnotherValue(anotherValue+1)}>Another Value</button>
+      </div> 
+      <hr/>
        <div>
       <h1>Color Picker</h1>
        <div class="color-palette">
