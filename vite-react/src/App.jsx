@@ -18,7 +18,11 @@ function Greeting(isMorning) {
   return <h2>Good Evening!</h2>;
 }
 function App() {
-
+const [backgroundColor, setBackgroundColor] = useState('white');
+  const colors =['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'  ];
+  const handleColorChange = (color) => {
+    setBackgroundColor(color);
+  };
   const [formData, setFormData] = useState({
     text:'',
     checkbox: false,
@@ -64,7 +68,7 @@ const incrementCounter = (id) => {
   const isMorning = now.getHours() < 12;
   return (
     
-    <div>
+    <div className="App" style={{ backgroundColor: backgroundColor }}>
       <h1 className='greeting'>Hello, {name}</h1>
       <button style={{ backgroundColor: 'green', color: 'white' }}>
         {buttonLabel}
@@ -76,6 +80,28 @@ const incrementCounter = (id) => {
         <MyButton />  {"\u00A0\u00A0"} <MyButton />  {"\u00A0\u00A0"}<MyButton />
       </div>
       <hr />
+     
+       <div>
+      <h1>Color Picker</h1>
+       <div class="color-palette">
+        {colors.map((color, index) => (
+          <div
+           key={index}
+            className="color-box"
+            style={{ backgroundColor: color }}
+      onClick={() => setBackgroundColor(color)}>
+
+      </div>
+      
+        ))}
+
+       </div>
+        <div className="custom-color-picker">
+        <input type="color" value={backgroundColor}
+         onChange={(e) => handleColorChange(e.target.value)} />
+       </div>
+      </div>
+       <hr />
        <div class="form-container">
       <h1>Form example</h1>
       <form>
